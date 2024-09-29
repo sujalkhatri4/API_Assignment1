@@ -3,7 +3,7 @@
 // StudentID: 200598524@student.georgianc.on.ca
 // Date: 29 September
 
-const Recipe = require('../models/recipeModel');
+const Recipe = require('../models/recipe');
 
 /**
  * Fetches all recipes from the database.

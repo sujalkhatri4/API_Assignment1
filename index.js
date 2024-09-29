@@ -3,7 +3,9 @@ const express = require('express')
 const  bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 require('dotenv').config(); // Load environment variables
-const recipeRoutes = require('./routes/recipeRoutes');
+const recipeRoutes = require('./routes/recipes');
+const recipesRouter = require('./routes/recipes');
+
 
 
 //express app inistialize
@@ -29,8 +31,8 @@ mongoose.connect(mongoURI)
 app.use(bodyParser.json());
 app.use (bodyParser.urlencoded({extended:true}));
 
-// Define routes
-app.use('/api/recipes', recipeRoutes); // Use recipe routes
+//define a route
+app.use('/api/recipes', recipesRouter);
 
 
 //set the port

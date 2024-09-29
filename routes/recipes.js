@@ -4,7 +4,7 @@
 // Date: 29 September
 
 const express = require('express');
-const { getAllRecipes } = require('../controllers/recipeController');
+const { getAllRecipes } = require('../controllers/recipeControllers');
 
 const router = express.Router();
 
