@@ -2,6 +2,8 @@
 const express = require('express')
 const  bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables
+const recipeRoutes = require('./routes/recipeRoutes');
 
 
 //express app inistialize
@@ -27,14 +29,9 @@ mongoose.connect(mongoURI)
 app.use(bodyParser.json());
 app.use (bodyParser.urlencoded({extended:true}));
 
-//define a route
-app.get('/',(req,res)=>{
-    res.send('Welcome to my API ASSIGNMENT')
-})
+// Define routes
+app.use('/api/recipes', recipeRoutes); // Use recipe routes
 
-app.post('/submit',(req,res)=>{
-    res.send(`Received the data:${req.body.data}`)
-});
 
 //set the port
 const  port = 3001;
