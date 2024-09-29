@@ -1,15 +1,13 @@
-// File: index.js
-// Student’s Name: Sujal
-// StudentID: 200598524
-// Date: 29 September
-
-const express = require('express');
-const bodyParser = require('body-parser');
+//import express
+const express = require('express')
+const  bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-require('dotenv').config();
-const recipeRoutes = require('./routes/recipeRoutes');
 
-const app = express();
+
+//express app inistialize
+const app =express();
+
+
 
 //MongoDb Atlas connection string
 const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
@@ -23,13 +21,20 @@ mongoose.connect(mongoURI)
     console.error('MongoDB connection error:', error);
   });
 
-  
+
+
 //Midleware to parser json body
 app.use(bodyParser.json());
 app.use (bodyParser.urlencoded({extended:true}));
 
-// Define routes for recipes
-app.use('/api/recipes', recipeRoutes);
+//define a route
+app.get('/',(req,res)=>{
+    res.send('Welcome to my API ASSIGNMENT')
+})
+
+app.post('/submit',(req,res)=>{
+    res.send(`Received the data:${req.body.data}`)
+});
 
 //set the port
 const  port = 3001;
