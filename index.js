@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 //express app inistialize
 const app =express();
 
+
+
 //MongoDb Atlas connection string
 const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
 
