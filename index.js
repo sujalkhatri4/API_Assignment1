@@ -7,17 +7,19 @@ const mongoose = require('mongoose');
 //express app inistialize
 const app =express();
 
+//MongoDb Atlas connection string
+const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
+
 //Connect to mongo Db Atlas
 mongoose.connect(mongoURI)
   .then(() => {
     console.log('MongoDB connected successfully');
   })
   .catch(err => {
-    console.error('MongoDB connection error:', err);
+    console.error('MongoDB connection error:', error);
   });
 
-//MongoDb Atlas connection string
-const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
+
 
 //Midleware to parser json body
 app.use(bodyParser.json());
@@ -29,7 +31,7 @@ app.get('/',(req,res)=>{
 })
 
 //set the port
-const  port = 3000;
+const  port = 3001;
 
 // start the server
 app.listen(port,()=>{
