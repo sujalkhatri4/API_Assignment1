@@ -18,13 +18,14 @@ const app =express();
 const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
 
 //Connect to mongo Db Atlas
-mongoose.connect(mongoURI)
-  .then(() => {
-    console.log('MongoDB connected successfully');
-  })
-  .catch(err => {
-    console.error('MongoDB connection error:', error);
-  });
+// Connect to MongoDB Atlas
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('MongoDB connected successfully');
+    })
+    .catch(err => {
+        console.error('MongoDB connection error:', err);
+    });
 
 
 
@@ -37,9 +38,9 @@ app.get('/',(req,res)=>{
     res.send('Welcome to my API ASSIGNMENT')
 })
 
-app.post('/submit',(req,res)=>{
-    res.send(`Received the data:${req.body.data}`)
-});
+// Use recipes routes
+app.use('/api/recipes', recipesRouter);
+
 
 //set the port
 const  port = 3001;
