@@ -30,6 +30,10 @@ app.get('/',(req,res)=>{
     res.send('Welcome to my API ASSIGNMENT')
 })
 
+app.post('/submit',(req,res)=>{
+    res.send(`Received the data:${req.body.data}`)
+});
+
 //set the port
 const  port = 3001;
 
