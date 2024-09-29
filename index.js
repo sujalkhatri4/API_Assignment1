@@ -7,6 +7,9 @@ const mangoose = require('mangoose');
 //express app inistialize
 const app =express();
 
+//MongoDb Atlas connection string
+const mongoURI='mongodb+srv://sujalkhatri411:<db_password>@Sujalapi.ngdmz.mongodb.net/'
+
 //Midleware to parser json body
 app.use(bodyParser.json());
 app.use (bodyParser.urlencoded({extended:true}));
