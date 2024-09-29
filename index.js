@@ -1,14 +1,23 @@
 //import express
 const express = require('express')
-const  bodyParser = require('body parser');
-const mangoose = require('mangoose');
+const  bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 
 //express app inistialize
 const app =express();
 
+//Connect to mongo Db Atlas
+mongoose.connect(mongoURI)
+  .then(() => {
+    console.log('MongoDB connected successfully');
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+  });
+
 //MongoDb Atlas connection string
-const mongoURI='mongodb+srv://sujalkhatri411:<db_password>@Sujalapi.ngdmz.mongodb.net/'
+const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
 
 //Midleware to parser json body
 app.use(bodyParser.json());
