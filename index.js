@@ -19,7 +19,6 @@ const app =express();
 //MongoDb Atlas connection string
 const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
 
-//Connect to mongo Db Atlas
 // Connect to MongoDB Atlas
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -40,7 +39,7 @@ app.get('/',(req,res)=>{
     res.send('Welcome to my API ASSIGNMENT')
 })
 
-// Use recipes routes
+//  recipes routes
 app.use('/api/recipes', recipesRouter);
 
 
