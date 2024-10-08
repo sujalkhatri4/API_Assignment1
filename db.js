@@ -1,11 +1,14 @@
 
-const mongoose  = require("mongoose")
-const MONGOURI = process.env.MONGO_URI;
+const mongoose  = require("mongoose");
+
+const mongoURI = process.env.MONGO_URI;
 
 const InitiateMongoServer = async()=>{
     try{
-        await mongoose.connect(MONGOURI);
-    
+        await mongoose.connect(MONGOURI,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
 
     console.log("connected to DB");
     }catch(e){
