@@ -37,10 +37,7 @@ app.use(bodyParser.json());
 app.use (bodyParser.urlencoded({extended:true}));
 
 
-
-//MongoDb Atlas connection string
-const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
-
+///const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'///
 
 
 
