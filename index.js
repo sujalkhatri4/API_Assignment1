@@ -9,32 +9,42 @@ const  bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const recipesRouter = require('./routes/recipes'); 
 const dotenv= require('dotenv');
+const fs = require('fs');
+const path = require('path');
+//Load environment variables from config.env
+dotenv.config({path:'./config.env'});
 
+//Initialize MongoDB server Conection 
+const InitiateMongoServer = require('./db');
+InitiateMongoServer();
+
+//Read data from movies.json
+try{
+const data = JSON.parse(fs.readFileSync('./movies.json','utf-8'));
+console.log(data);
+}
+catch(e){
+    console.log('error reading or parsing movies.json:',e);
+}
 
 
 
 //express app inistialize
 const app =express();
 
+//Midleware to parser json body
+app.use(bodyParser.json());
+app.use (bodyParser.urlencoded({extended:true}));
+
 
 
 //MongoDb Atlas connection string
 const mongoURI='mongodb+srv://sujalkhatri411:sujalapi@recipeapi.ngdmz.mongodb.net/'
 
-// Connect to MongoDB Atlas
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log('MongoDB connected successfully');
-    })
-    .catch(err => {
-        console.error('MongoDB connection error:', err);
-    });
 
 
 
-//Midleware to parser json body
-app.use(bodyParser.json());
-app.use (bodyParser.urlencoded({extended:true}));
+
 
 //define a route
 app.get('/',(req,res)=>{
