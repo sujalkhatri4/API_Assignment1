@@ -2,18 +2,13 @@
 // StudentID: 200598524@student.georgianc.on.ca
 // Date: 29 September
 
-require('dotenv').config();
-
-//  express 
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
-//  MongoDB URI for debugging
-console.log('MongoDB URI:', process.env.MONGO_URI); 
-
-//  MongoDB connection function
+const dotenv = require('dotenv');
+dotenv.config({path: './config.env'});
 const InitiateMongoServer = require('./db');
+
 
 // Import routes
 const recipesRouter = require('./src/routes/recipes');

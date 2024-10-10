@@ -9,4 +9,4 @@ exports.GetRecipes = async(req, res) => {
     catch(e){
         res.status(500).send('Error while fetching recipes');
     }
-};
+};  
