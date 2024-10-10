@@ -1,16 +1,20 @@
-const mongoose = require('mongoose');
-const MONGO_URI = process.env.MONGO_URI;
 
-const InitiateMongoServer = async () => {
-    try {
-        await mongoose.connect(MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log("Connected to DB");
-    } catch (e) {
-        console.error("Error connecting to MongoDB:", e);
-    }
-};
+const mongoose = require("mongoose");
+const fs = require('fs');
+const importMovies  = require("./src/controllers/Controller");
+const MONGOURI =process.env.MONGO_URI;
 
-module.exports = InitiateMongoServer;
+const InitiateMongoServer = async()=>{
+    try{
+        await mongoose.connect(MONGOURI);
+    
+    console.log("connected to DB");
+    
+    }catch(e){
+        console.log(e);
+        throw(e);
+        }
+    };
+
+    module.exports= InitiateMongoServer;
+
