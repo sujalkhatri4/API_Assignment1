@@ -1,41 +1,45 @@
-//Student’s Name: Sujal
+// Student’s Name: Sujal
 // StudentID: 200598524@student.georgianc.on.ca
 // Date: 29 September
-//import express
+
+require('dotenv').config();
+
+//  express 
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config({path: './config.env'});
+
+//  MongoDB URI for debugging
+console.log('MongoDB URI:', process.env.MONGO_URI); 
+
+//  MongoDB connection function
 const InitiateMongoServer = require('./db');
 
-//import routes
+// Import routes
 const recipesRouter = require('./src/routes/recipes');
 
-//Initialize MongoDB server Conection 
+// Initialize MongoDB server connection 
 InitiateMongoServer();
-//express app inistialize
-const app =express();
 
-//set the port
-const  port = 3001;
+// Initialize express app
+const app = express();
 
-//Midleware to parser json body
+// Set the port
+const port = 3001;
+
+// Middleware to parse JSON body
 app.use(bodyParser.json());
-app.use (bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// Define a route
+app.get('/', (req, res) => {
+    res.send('Welcome to my API ASSIGNMENT');
+});
 
-
-
-//define a route
-app.get('/',(req,res)=>{
-    res.send('Welcome to my API ASSIGNMENT')
-})
-
-//  recipes routes
+// Recipes routes
 app.use('/api/recipes', recipesRouter);
 
-// start the server
-app.listen(port,()=>{
-    console.log(`the server is running on http://localhost:${port}`)
+// Start the server
+app.listen(port, () => {
+    console.log(`The server is running on http://localhost:${port}`);
 });
