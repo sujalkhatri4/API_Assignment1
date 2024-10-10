@@ -6,6 +6,7 @@
 
 const mongoose = require('mongoose');
 
+//  the recipe schema
 const recipeSchema = new mongoose.Schema({
     recipeName: { type: String, required: true },
     ingredients0: { type: [String], required: true },
@@ -21,5 +22,7 @@ const recipeSchema = new mongoose.Schema({
     averageRating: { type: Number, default: 0 },
 });
 
-const Recipe = mongoose.model('Recipes', RecipeSchema);
+const Recipe = mongoose.model('recipes', recipeSchema);
+
+// Export the model
 module.exports = Recipe;
