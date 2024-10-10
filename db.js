@@ -6,7 +6,7 @@ const mongoURI = process.env.MONGO_URI;
 
 const InitiateMongoServer = async()=>{
     try{
-        await mongoose.connect(MONGOURI,{
+        await mongoose.connect(mongoURI,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
