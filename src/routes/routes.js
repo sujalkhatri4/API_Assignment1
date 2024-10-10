@@ -9,12 +9,16 @@ router.post('/import',movieController.importMovies);
 //route to get all movies
 router.get('/',movieController.getMovies);
 
-//Route to get a single movie by id
+//route to get a single movie by id
 router.get('/:id',movieController.getMovieById);
 
-//Route to update a movie by id
+//route to update a movie by id
 router.put('/update/:id', validateMovie,movieController.updateMovie);
 
-//Route top delete a movie by id
+//route top delete a movie by id
 router.delete('/delete/:id',movieController.deleteMovie);
 
+//route to create a new movie
+//Validate movie before creating
+router.post('/create',validateMovie,movieController.createMovie);
+module.exports = router;
