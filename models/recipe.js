@@ -21,4 +21,5 @@ const recipeSchema = new mongoose.Schema({
     averageRating: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model('Recipe', recipeSchema);
+const Recipe = mongoose.model('Recipes', RecipeSchema);
+module.exports = Recipe;
