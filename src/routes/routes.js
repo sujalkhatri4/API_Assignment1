@@ -14,3 +14,7 @@ router.get('/:id',movieController.getMovieById);
 
 //Route to update a movie by id
 router.put('/update/:id', validateMovie,movieController.updateMovie);
+
+//Route top delete a movie by id
+router.delete('/delete/:id',movieController.deleteMovie);
+
