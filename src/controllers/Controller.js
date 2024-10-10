@@ -1,4 +1,4 @@
-const Recipe = require('../models/recipe');
+const Movie = require('../models/Movies');
 
 exports.GetRecipes = async(req, res) => {
     try{
