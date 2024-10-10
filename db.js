@@ -1,3 +1,7 @@
+//Student’s Name: Sujal
+// StudentID: 200598524@student.georgianc.on.ca
+// Date: 29 September
+
 const mongoose = require('mongoose');
 const MONGO_URI = process.env.MONGO_URI;
 

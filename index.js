@@ -1,8 +1,6 @@
 //Student’s Name: Sujal
 // StudentID: 200598524@student.georgianc.on.ca
 // Date: 29 September
-
-
 //import express
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,7 +10,7 @@ dotenv.config({path: './config.env'});
 const InitiateMongoServer = require('./db');
 
 //import routes
-const recipeRoutes = require('./routes/recipes');
+const recipesRouter = require('./src/routes/recipes');
 
 //Initialize MongoDB server Conection 
 InitiateMongoServer();

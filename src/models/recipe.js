@@ -5,6 +5,7 @@
 
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 //  the recipe schema
 const recipeSchema = new mongoose.Schema({
@@ -23,6 +24,5 @@ const recipeSchema = new mongoose.Schema({
 });
 
 const Recipe = mongoose.model('recipes', recipeSchema);
-
 // Export the model
 module.exports = Recipe;
