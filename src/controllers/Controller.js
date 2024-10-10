@@ -1,12 +1,15 @@
 const Movie = require('../models/Movies');
+const fs =require('fs');
 
-exports.GetRecipes = async(req, res) => {
+//function to get all the files
+
+exports.getMovies = async(req,res)=>{
     try{
-        const recipes =await Recipe.find();
-        //Get Recipes from database
-        res.status(200).json(recipes);
+        const movies = await Movie.find();
+         res.status(200).json(movies);
     }
     catch(e){
-        res.status(500).send('Error while fetching recipes');
+            console.error(e);
+            res.status(500).send('Error retrieving Movies');
     }
-};  
+};
